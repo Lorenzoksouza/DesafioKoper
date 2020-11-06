@@ -6,7 +6,7 @@ class MyTestCase(unittest.TestCase):
         print(conversor.numero_para_extenso("1321.05"))
         print(conversor.numero_para_extenso("0.05"))
         print(conversor.numero_para_extenso("113"))
-        print(conversor.numero_para_extenso("13452345521.05"))
+        print(conversor.numero_para_extenso("asfsadf"))
 
 
 if __name__ == '__main__':

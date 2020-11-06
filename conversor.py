@@ -11,6 +11,10 @@ def numero_para_extenso(num_inicial="0"):
     """
     LANG = 'pt-BR'
     if num_inicial != '':
+        try:
+            var = float(num_inicial)
+        except ValueError:
+            return("Isso não é um número")
         if num_inicial.find(".") != -1:
             num_inicial = num_inicial.replace(".", ",")
 
