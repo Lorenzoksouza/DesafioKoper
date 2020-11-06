@@ -11,17 +11,17 @@ def numero_para_extenso(num_inicial="0"):
     """
     LANG = 'pt-BR'
     if num_inicial != '':
+        if num_inicial.find(",") != -1:
+            num_inicial = num_inicial.replace(",", ".")
         # Verificação do input para ver se é numerico
         try:
             var = float(num_inicial)
         except ValueError:
             return ("Isso não é um número")
-        if num_inicial.find(".") != -1:
-            num_inicial = num_inicial.replace(".", ",")
         # Identificação de casas decimais
-        if num_inicial.find(",") != -1:
+        if num_inicial.find(".") != -1:
             # Divisão do numero em antes e depois da virgula
-            num_dividido = num_inicial.split(",")
+            num_dividido = num_inicial.split(".")
             num_principal = int(num_dividido[0])
             num_decimal = int(num_dividido[1])
         else:
