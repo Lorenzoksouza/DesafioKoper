@@ -11,14 +11,16 @@ def numero_para_extenso(num_inicial="0"):
     """
     LANG = 'pt-BR'
     if num_inicial != '':
+        # Verificação do input para ver se é numerico
         try:
             var = float(num_inicial)
         except ValueError:
-            return("Isso não é um número")
+            return ("Isso não é um número")
         if num_inicial.find(".") != -1:
             num_inicial = num_inicial.replace(".", ",")
-
+        # Identificação de casas decimais
         if num_inicial.find(",") != -1:
+            # Divisão do numero em antes e depois da virgula
             num_dividido = num_inicial.split(",")
             num_principal = int(num_dividido[0])
             num_decimal = int(num_dividido[1])
@@ -26,7 +28,10 @@ def numero_para_extenso(num_inicial="0"):
             num_principal = int(num_inicial)
             num_decimal = 0
 
+        # inicialização da variavel que vai guardar numero por extenso
         num_extenso = ""
+
+        # Verificação da primeira parte do número
         if num_principal != 0:
             num_extenso = num2words(num_principal, lang=LANG)
             if num_principal == 1:
@@ -34,6 +39,7 @@ def numero_para_extenso(num_inicial="0"):
             if num_principal > 1:
                 num_extenso = num_extenso + " reais"
 
+        # Verificação da sugunda parte do número
         if num_decimal != 0:
             if num_principal > 0:
                 num_extenso = num_extenso + " e "
@@ -43,9 +49,11 @@ def numero_para_extenso(num_inicial="0"):
             if num_decimal > 1:
                 num_extenso = num_extenso + " centavos"
 
+        # Retorno do numero ja com as nomenclaturas
         return num_extenso
 
 
+# Classe para uma tela simples para melhor visualização e utilização
 class Application:
     def __init__(self, master=None):
         self.fontePadrao = ("Arial", "10")
